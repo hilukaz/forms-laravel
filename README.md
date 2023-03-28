@@ -10,3 +10,6 @@ npm run dev //roda o vite
 
 php artisan serve //roda o server php
 
+copy .env.example .env
+
+php artisan key:generate
