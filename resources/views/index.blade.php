@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,10 +30,10 @@
 				<div class="collapse navbar-collapse" id="navbarNavDropdown">
 					<ul class="navbar-nav">
 						<li class="nav-item active">
-							<a class="nav-link" href="index.php">Cadastrar</a>
+							<a class="nav-link" href="dados">Cadastrar</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="consultarClientes.php">Consultar</a>
+							<a class="nav-link" href="consulta">Consultar</a>
 						</li>
 					</ul>
 				</div>
@@ -44,7 +45,7 @@
 					<h5 class="card-title">Cadastrar - Agendamento de Potenciais Clientes</h5>
 					<p class="card-text">Sistema utilizado para agendamento de serviços.</p>
 					<p>
-						<form method="post" action="controller/ControllerCadastro.php" id="form" name="form">
+						<form method="post" action="/post" id="form" name="form">
 							<div class="form-group">
 								<label for="exampleFormControlInput1">Nome:</label>
 								<input type="text" class="form-control" name="txtNome" required id="txtNome">
