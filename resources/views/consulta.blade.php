@@ -66,39 +66,30 @@
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">Id</th>
           <th scope="col">Nome</th>
-          <th scope="col">Usuário</th>
-          <th scope="col">Ações</th>
+          <th scope="col">Telefone</th>
+          <th scope="col">Observação</th>
+          <th scope="col">Origem</th>
+          <th scope="col">Data_contato</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="TableData">
+      @foreach ($agendamentos as $agendatd)
         <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>
-            <button type="button" class="btn btn-dark">Editar</button>
-            <button type="button" class="btn btn-dark">Excluir</button>
-          </td>
+          
+          <td scope="col">{{$agendatd->name}} </td><!--matriz-->
+          <td scope="col">{{$agendatd->telefone}}</td>
+          <td scope="col">{{$agendatd->observacao}}</td>
+          <td scope="col">{{$agendatd->origem}}</td>
+          <td scope="col">{{$agendatd->data_contato}}</td>
+          <!-- <td scope="col"> -->
+            
+          <!-- <button type="button" class="btn btn-dark" onclick="location.href='editar.php?id='" style="width 72px" >Editar</button> -->
+          <!-- <button type="button" class="btn btn-dark" onclick="location.href='excluir.php?id='" style="width 72px" >Excluir</button>vai pro excluir junto da matriz do id -->
+          <!-- </td> -->
+        
         </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>
-            <button type="button" class="btn btn-dark">Editar</button>
-            <button type="button" class="btn btn-dark">Excluir</button>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="2">Larry the Bird</td>
-          <td>
-            <button type="button" class="btn btn-dark">Editar</button>
-            <button type="button" class="btn btn-dark">Excluir</button>
-          </td>
-        </tr>
+        @endforeach
       </tbody>
     </table>
 </body>

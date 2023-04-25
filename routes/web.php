@@ -17,23 +17,25 @@ use App\Http\Controllers\AgendamentosController;
 */
 Route::get('/user/{id}', [AgendamentosController::class, 'show']);
 
+
 Route::post('/post',[AgendamentosController::class, 'show']);
 
-Route::get('/consulta', function (Request $request) {
+// Route::get('/consulta', function (Request $request) {
     
     
-    return view('consulta');
-});
+//     return view('consulta');
+// });
+Route::resource('consulta', AgendamentosController::class);
 
 Route::get('/', function () {
    
-     $primeiroRegistro = new Agendamentos;
-    $primeiroRegistro-> name="Rodrigo Alves";
-    $primeiroRegistro-> origem="Whatsapp";
-    $primeiroRegistro-> data_contato="2023-03-28";
-    $primeiroRegistro-> telefone="(11)98522-9966";
-    $primeiroRegistro-> observacao="Entrou em contato no dia 10.03.2023 interessado em um orçamento para formatação e instalação do Sistema Operacional Windows 10";
+    // $primeiroRegistro = new Agendamentos;
+    // $primeiroRegistro-> name="Rodrigo Alves";
+    // $primeiroRegistro-> origem="Whatsapp";
+    // $primeiroRegistro-> data_contato="2023-03-28";
+    // $primeiroRegistro-> telefone="(11)98522-9966";
+    // $primeiroRegistro-> observacao="Entrou em contato no dia 10.03.2023 interessado em um orçamento para formatação e instalação do Sistema Operacional Windows 10";
     
-    $primeiroRegistro->save();
+    // $primeiroRegistro->save();
    return view('index'); 
 });
