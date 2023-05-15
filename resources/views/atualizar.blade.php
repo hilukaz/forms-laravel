@@ -30,10 +30,10 @@
 				<div class="collapse navbar-collapse" id="navbarNavDropdown">
 					<ul class="navbar-nav">
 						<li class="nav-item active">
-							<a class="nav-link" href="/">Cadastrar</a>
+							<a class="nav-link" href="">Cadastrar</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/consultar">Consultar</a>
+							<a class="nav-link" href="{{ route('consultar') }}">Consultar</a>
 						</li>
 					</ul>
 				</div>
@@ -45,37 +45,39 @@
 					<h5 class="card-title">Cadastrar - Agendamento de Potenciais Clientes</h5>
 					<p class="card-text">Sistema utilizado para agendamento de serviços.</p>
 					<p>
-						<form method="post" action="/post" id="form" name="form">
+						<form method="POST" action="/atualizar/{{ $agendamentos->id }}" id="form" name="form">
 							<!-- route deixa explicito que é uma rota -->
 							@csrf
+            				@method('PUT')
 							<div class="form-group">
 								<label for="exampleFormControlInput1">Nome:</label>
-								<input type="text" class="form-control" name="txtNome" required id="txtNome">
+								<input value="{{$agendamentos->name}}" type="text" class="form-control" name="txtNome" required id="txtNome">
+								
 							</div>
 							<div class="form-group">
 								<label for="exampleFormControlInput1">Telefone:</label>
-								<input type="tel" class="form-control" required name="txtTelefone" id="txtTelefone" placeholder="(xx)xxxxx-xxxx">
+								<input value="{{$agendamentos->telefone}}" type="tel" class="form-control" required name="txtTelefone" id="txtTelefone" placeholder="(xx)xxxxx-xxxx">
 							</div>
 							<div class="form-group">
 								<label for="exampleFormControlSelect1">Origem:</label>
 								<select class="form-control" required name="txtOrigem" id="txtOrigem">
-									<option>Celular</option>
-									<option>Fixo</option>
-									<option>Whatsapp</option>
-									<option>Facebook</option>
-									<option>Instagram</option>
-									<option>Google Meu Negocio</option>
+									<option {{ $agendamentos->origem === 'Celular' ? "selected" : ''}} >Celular</option>
+									<option {{ $agendamentos->origem === 'Fixo' ? "selected" : ''}}  >Fixo</option>
+									<option {{ $agendamentos->origem === 'Whatsapp' ? "selected" : ''}}  >Whatsapp</option>
+									<option {{ $agendamentos->origem === 'Facebook' ? "selected" : ''}} >Facebook</option>
+									<option {{ $agendamentos->origem === 'Instagram' ? "selected" : ''}} >Instagram</option>
+									<option {{ $agendamentos->origem === 'Google Meu Negocio' ? "selected" : ''}}  >Google Meu Negocio</option>
 								</select>
 							</div>
 							<div class="form-group">
 								<label for="exampleFormControlInput1">Data do Contato:</label>
-								<input type="date" class="form-control" required name="txtDataContato" id="txtDataContato">
+								<input value="{{$agendamentos->data_contato}}" type="date" class="form-control" required name="txtDataContato" id="txtDataContato">
 							</div>
 							<div class="form-group">
 								<label for="exampleFormControlTextarea1">Observação</label>
-								<textarea class="form-control" name="txtObservacao" id="txtObservacao" rows="3"></textarea>
+								<textarea  class="form-control" name="txtObservacao" id="txtObservacao" rows="3">{{ $agendamentos->observacao }}</textarea>
 							</div>
-							<button type="submit" id="btnInserir" class="btn btn-primary">Cadastrar</button>
+							<button type="submit" id="btnInserir" class="btn btn-primary">Atualizar</button>
 						</form>
 					</p>
 				</div>

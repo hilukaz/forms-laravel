@@ -15,17 +15,18 @@ use App\Http\Controllers\AgendamentosController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/user/{id}', [AgendamentosController::class, 'show']);
+Route::get('/consultar', [AgendamentosController::class, 'index'])->name('consultar');//name define o router
 
 
-Route::post('/post',[AgendamentosController::class, 'show']);
+Route::get('/editar/{id}', [AgendamentosController::class, 'show']);
 
-// Route::get('/consulta', function (Request $request) {
-    
-    
-//     return view('consulta');
-// });
-Route::resource('consulta', AgendamentosController::class);
+Route::post('/post', [AgendamentosController::class, 'store']);
+
+Route::delete('/deletar/{id}', [AgendamentosController::class, 'destroy']);
+
+Route::put('/atualizar/{id}', [AgendamentosController::class, 'update']);//quando se trata de formulário html. não é possível carregar o método put
+
+// Route::resource('consulta', AgendamentosController::class);
 
 Route::get('/', function () {
    

@@ -69,9 +69,10 @@
           <th scope="col">Nome</th>
           <th scope="col">Telefone</th>
           <th scope="col">Observação</th>
-          <th scope="col">Origem</th>
-          <th scope="col">Data_contato</th>
-        </tr>
+          <th scope="col">Origem</th> 
+          <th scope="col">Data_contato</th> 
+          <th scope="col">Ação</th> 
+        </tr> 
       </thead>
       <tbody id="TableData">
       @foreach ($agendamentos as $agendatd)
@@ -82,11 +83,19 @@
           <td scope="col">{{$agendatd->observacao}}</td>
           <td scope="col">{{$agendatd->origem}}</td>
           <td scope="col">{{$agendatd->data_contato}}</td>
-          <!-- <td scope="col"> -->
-            
-          <!-- <button type="button" class="btn btn-dark" onclick="location.href='editar.php?id='" style="width 72px" >Editar</button> -->
-          <!-- <button type="button" class="btn btn-dark" onclick="location.href='excluir.php?id='" style="width 72px" >Excluir</button>vai pro excluir junto da matriz do id -->
-          <!-- </td> -->
+          
+          <td scope="col">
+          <button type="button" class="btn btn-dark" onclick="location.href='/editar/{{ $agendatd->id }}'" style="width 72px" >Editar</button>
+          <form action="/deletar/{{ $agendatd->id }}" method="POST">
+            <!-- apenas é possível utilziar post em forms -->
+            <!-- onclick é apenas get -->
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="btn btn-dark" style="width 72px">
+                  Excluir
+              </button>
+          </form>
+          </td>
         
         </tr>
         @endforeach

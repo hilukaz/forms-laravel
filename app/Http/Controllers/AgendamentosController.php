@@ -21,13 +21,15 @@ class AgendamentosController extends Controller
     {
         $agendamentos = Agendamentos::all();
         return view('consulta', compact('agendamentos'));
-        // return vie('nome da view', compact('atributos que passarão pro view'))
+        // return view('nome da view', compact('atributos que passarão pro view'))
     }
 
     public function show(string $id): View
     {
         $agendamentos=Agendamentos::findOrFail($id);
-        return view('consulta', compact('agendamentos'));
+        
+        return view('atualizar', compact('agendamentos'));
+
     }
 
     public function store(Request $request)
@@ -41,6 +43,27 @@ class AgendamentosController extends Controller
 
         $agendamentos->save();//salva todos os dados colocado no campo e envia pro banco
 
-        return redirect()->route('consulta.index');//redireciona para o nome do resource
+        return redirect('/consultar');
+
+    }
+
+    public function destroy($id) {
+        Agendamentos::findOrFail($id)->delete();
+
+        return redirect()->route('consultar');
+    }
+    
+    public function update(Request $request) {
+        $agendamentos = Agendamentos::findOrFail($request->id);
+
+        $agendamentos->name = $request->input('txtNome');
+        $agendamentos->telefone = $request->input('txtTelefone');
+        $agendamentos->observacao = $request->input('txtObservacao');
+        $agendamentos->origem = $request->input('txtOrigem');
+        $agendamentos->data_contato = $request->input('txtDataContato');
+
+        $agendamentos->save();
+
+        return redirect()->route('consultar');
     }
 }
