@@ -13,3 +13,6 @@ php artisan serve //roda o server php
 copy .env.example .env
 
 php artisan key:generate
+
+php artisan migrate
+php artisan make:model -m Servico
