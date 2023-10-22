@@ -17,7 +17,6 @@ use App\Http\Controllers\AgendamentosController;
 */
 Route::get('/consultar', [AgendamentosController::class, 'index'])->name('consultar');//name define o router
 
-
 Route::get('/editar/{id}', [AgendamentosController::class, 'show']);
 
 Route::post('/post', [AgendamentosController::class, 'store']);

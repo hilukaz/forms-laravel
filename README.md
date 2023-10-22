@@ -13,3 +13,9 @@ php artisan serve //roda o server php
 copy .env.example .env
 
 php artisan key:generate
+
+php artisan make:controller VehicleController --resource
+
+php artisan make:model -m Servico
+
+php artisan migrate 
