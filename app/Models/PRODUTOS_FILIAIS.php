@@ -5,12 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class FILIAIS extends Model
+class PRODUTOS_FILIAIS extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
-        'id',
-        'filial',
-    ];
 }
